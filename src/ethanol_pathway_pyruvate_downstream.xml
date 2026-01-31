@@ -22,7 +22,7 @@
 <celldesigner:briefView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="0.0"/>
+<celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="3fff0000" scheme="Color"/>
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
@@ -41,7 +41,7 @@
 <celldesigner:briefView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="0.0"/>
+<celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="3fff0000" scheme="Color"/>
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
@@ -60,7 +60,7 @@
 <celldesigner:briefView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="0.0"/>
+<celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="3fff0000" scheme="Color"/>
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
@@ -79,7 +79,7 @@
 <celldesigner:briefView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="0.0"/>
+<celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="3fff0000" scheme="Color"/>
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
@@ -98,7 +98,7 @@
 <celldesigner:briefView>
 <celldesigner:innerPosition x="0.0" y="0.0"/>
 <celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="0.0"/>
+<celldesigner:singleLine width="1.0"/>
 <celldesigner:paint color="3fff0000" scheme="Color"/>
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
@@ -194,7 +194,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s5" id="s5" name="ADH" compartment="default" initialAmount="0">
+<species metaid="s5" id="s5" name="ADH" compartment="default" initialAmount="0.02" hasOnlySubstanceUnits="true" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
