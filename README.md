@@ -1,0 +1,2 @@
+# CellDesigner XML Repository
+This repository houses XML files exported from CellDesigner. These files represent metabolic pathways and models, preserving the detailed structure and annotations created within the CellDesigner environment.
