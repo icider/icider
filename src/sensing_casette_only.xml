@@ -4,7 +4,7 @@
 <annotation>
 <celldesigner:extension>
 <celldesigner:modelVersion>4.0</celldesigner:modelVersion>
-<celldesigner:modelDisplay sizeX="1056" sizeY="640"/>
+<celldesigner:modelDisplay sizeX="1500" sizeY="1000"/>
 <celldesigner:listOfCompartmentAliases/>
 <celldesigner:listOfComplexSpeciesAliases/>
 <celldesigner:listOfSpeciesAliases>
@@ -498,7 +498,7 @@
 <compartment metaid="default" id="default" size="1" units="volume"/>
 </listOfCompartments>
 <listOfSpecies>
-<species metaid="s1" id="s1" name="ethylene" compartment="default" initialAmount="0">
+<species metaid="s1" id="s1" name="ethylene" compartment="default" initialAmount="0.001">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -662,7 +662,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0">
+<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0.001" hasOnlySubstanceUnits="true" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -736,10 +736,12 @@
 </species>
 </listOfSpecies>
 <listOfParameters>
-<parameter metaid="k_trans_global" id="k_trans_global" name="Global Transcription Rate" value="9.96e-007" units="substance"/>
+<parameter metaid="k_trans_global" id="k_trans_global" name="Global Transcription Rate" value="0.000996" units="substance"/>
 <parameter metaid="d_mrna_global" id="d_mrna_global" name="Global mRNA Degradation Rate" value="5.77e-011" units="substance"/>
 <parameter metaid="k_tl_global" id="k_tl_global" name="Global Protein Translation Rate" value="3" units="substance"/>
 <parameter metaid="d_prot_global" id="d_prot_global" name="Global Protein Degradation Rate" value="0" units="substance"/>
+<parameter metaid="km_eth" id="km_eth" name="KM of ethylene (activation)" value="1.783e-005" units="substance"/>
+<parameter metaid="km_ga" id="km_ga" name="km of gibberellin (activator)" value="1.783e-005" units="substance"/>
 </listOfParameters>
 <listOfReactions>
 <reaction metaid="re1" id="re1" reversible="false" fast="false">
@@ -763,7 +765,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.037089972119613734,-0.17050315541553696 0.08238301812728344,-0.19961148631646708</celldesigner:editPoints>
+<celldesigner:editPoints>0.037089972119613956,-0.17050315541553385 0.08238301812728344,-0.19961148631646708</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s3" aliases="sa3" targetLineIndex="-1,2">
@@ -826,8 +828,25 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00021">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
 <ci> k_trans_global </ci>
+<ci> s1 </ci>
+</apply>
+<apply>
+<plus/>
+<ci> km_eth </ci>
+<ci> s1 </ci>
+</apply>
+</apply>
 </math>
 </kineticLaw>
 </reaction>
@@ -910,7 +929,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.25625552329251544,-0.0025754323948952162 0.37684635778311204,-0.003787400580730349</celldesigner:editPoints>
+<celldesigner:editPoints>0.25625552329251544,-0.0025754323948952162 0.37684635778311293,-0.003787400580730349</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s6" aliases="sa6" targetLineIndex="-1,2">
@@ -1155,7 +1174,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.4146341463414718,2.6645352591003757E-15 0.6097560975609841,2.6645352591003757E-15</celldesigner:editPoints>
+<celldesigner:editPoints>0.41463414634147533,3.552713678800501E-15 0.6097560975609877,3.552713678800501E-15</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s8" aliases="sa37" targetLineIndex="-1,2">
@@ -1230,7 +1249,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.3428571428571381,-8.881784197001252E-16 0.5142857142857107,-8.881784197001252E-16</celldesigner:editPoints>
+<celldesigner:editPoints>0.3428571428571363,-8.881784197001252E-16 0.5142857142857107,-8.881784197001252E-16</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:extension>
 </annotation>
@@ -1283,7 +1302,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.3976751001269898,-0.42649213636807626 0.4535508449741128,-0.4284458337403533</celldesigner:editPoints>
+<celldesigner:editPoints>0.3976751001269898,-0.42649213636807626 0.4535508449741119,-0.42844583374035305</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s12" aliases="sa36" targetLineIndex="-1,3">
@@ -1347,7 +1366,19 @@
 </listOfModifiers>
 <kineticLaw metaid="CDMT00037">
 <math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<divide/>
+<apply>
+<times/>
 <ci> k_trans_global </ci>
+<ci> s2 </ci>
+</apply>
+<apply>
+<plus/>
+<ci> km_ga </ci>
+<ci> s2 </ci>
+</apply>
+</apply>
 </math>
 </kineticLaw>
 </reaction>
