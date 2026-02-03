@@ -1166,7 +1166,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0.001" hasOnlySubstanceUnits="true" charge="0">
+<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -1447,7 +1447,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s38" id="s38" name="pyruvate" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" charge="0">
+<species metaid="s38" id="s38" name="pyruvate" compartment="default" initialConcentration="500" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -1499,7 +1499,6 @@
 <parameter metaid="d_prot_global" id="d_prot_global" name="Global Protein Degradation Rate" value="0" units="substance"/>
 <parameter metaid="km_eth" id="km_eth" name="KM of ethylene (activation)" value="1.783e-005" units="substance"/>
 <parameter metaid="km_ga" id="km_ga" name="km of gibberellin (activator)" value="1.783e-005" units="substance"/>
-<parameter metaid="k_d_vp16_gal4_dimer" id="k_d_vp16_gal4_dimer" name="Dissociation of dimer to monomer KD" value="1e-008" units="substance"/>
 </listOfParameters>
 <listOfReactions>
 <reaction metaid="re1" id="re1" reversible="false" fast="false">
@@ -2466,6 +2465,11 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00113">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <divide/>
@@ -2494,7 +2498,7 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="k_m_vp16_gal4_dimer" id="k_m_vp16_gal4_dimer" name="k_m_vp16_gal4_dimer" value="0" units="substance"/>
+<parameter metaid="k_m_vp16_gal4_dimer" id="k_m_vp16_gal4_dimer" name="k_m_vp16_gal4_dimer" value="0.018" units="substance"/>
 <parameter metaid="n_vp16_gal4_dimer" id="n_vp16_gal4_dimer" name="n_vp16_gal4_dimer" value="1" units="substance"/>
 </listOfParameters>
 </kineticLaw>
@@ -2597,7 +2601,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.46213776230677794,0.0018406078228903056 0.5543361284885631,0.017510685869595477</celldesigner:editPoints>
+<celldesigner:editPoints>0.4621377623067744,0.0018406078228911937 0.5543361284885631,0.017510685869595477</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s23" aliases="sa48" targetLineIndex="-1,2">
@@ -2660,6 +2664,11 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00114">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <divide/>
@@ -2688,7 +2697,7 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="CDMT00115" id="k_m_vp16_gal4_dimer" name="k_m_vp16_gal4_dimer" value="0" units="substance"/>
+<parameter metaid="CDMT00115" id="k_m_vp16_gal4_dimer" name="k_m_vp16_gal4_dimer (lexA)" value="0.084" units="substance"/>
 <parameter metaid="CDMT00116" id="n_vp16_gal4_dimer" name="n_vp16_gal4_dimer" value="1" units="substance"/>
 </listOfParameters>
 </kineticLaw>
@@ -2714,7 +2723,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.5993054301650727,-0.48193830990364184 0.6813174009830707,-0.3964173161677511</celldesigner:editPoints>
+<celldesigner:editPoints>0.5993054301650727,-0.4819383099036383 0.6813174009830707,-0.3964173161677511</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="MODULATION" modifiers="s27" aliases="sa54" targetLineIndex="-1,4">
@@ -2728,7 +2737,7 @@
 </celldesigner:linkTarget>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:modification>
-<celldesigner:modification type="MODULATION" modifiers="s20" aliases="sa43" targetLineIndex="-1,6" editPoints="0.15800622145387333,0.0014463741673724773 0.8699842088495524,0.0779589517272945">
+<celldesigner:modification type="MODULATION" modifiers="s20" aliases="sa43" targetLineIndex="-1,6" editPoints="0.15800622145387422,0.0014463741673724773 0.8699842088495542,0.07795895172729472">
 <celldesigner:connectScheme connectPolicy="direct">
 <celldesigner:listOfLineDirection>
 <celldesigner:lineDirection index="0" value="unknown"/>
@@ -2797,6 +2806,11 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00128">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <times/>
@@ -2807,8 +2821,8 @@
 <ci> k_trans_global </ci>
 <apply>
 <power/>
-<ci> k_m_act </ci>
-<ci> n_act </ci>
+<ci> k_m_repr </ci>
+<ci> n_repr </ci>
 </apply>
 </apply>
 <apply>
@@ -2853,8 +2867,8 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="k_m_act" id="k_m_act" name="k_m of Activator (VP16-GAL4 Dimer)" value="0" units="substance"/>
-<parameter metaid="k_m_repr" id="k_m_repr" name="k_m of Repressor (lexA_SRDX)" value="0" units="substance"/>
+<parameter metaid="k_m_act" id="k_m_act" name="k_m of Activator (VP16-GAL4 Dimer)" value="0.018" units="substance"/>
+<parameter metaid="k_m_repr" id="k_m_repr" name="k_m of Repressor (lexA_SRDX)" value="0.0046" units="substance"/>
 <parameter metaid="n_act" id="n_act" name="n of Activator (vp16_gal4_dimer)" value="1" units="substance"/>
 <parameter metaid="n_repr" id="n_repr" name="n of Repressor (lexA_SRDX)" value="1" units="substance"/>
 </listOfParameters>
@@ -3367,15 +3381,14 @@
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <times/>
-<apply>
-<divide/>
-<cn type="integer"> 1 </cn>
-<ci> k_d_vp16_gal4_dimer </ci>
-</apply>
+<ci> k_on_dimer </ci>
 <ci> s9 </ci>
 <ci> s11 </ci>
 </apply>
 </math>
+<listOfParameters>
+<parameter metaid="k_on_dimer" id="k_on_dimer" name="k_on for Dimerization" value="60" units="substance"/>
+</listOfParameters>
 </kineticLaw>
 </reaction>
 <reaction metaid="re44" id="re44" reversible="false" fast="false">
@@ -3441,6 +3454,11 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00102">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <divide/>
@@ -3458,8 +3476,8 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="k_cat_pdc" id="k_cat_pdc" name="k_cat_pdc" value="0" units="substance"/>
-<parameter metaid="k_m_pdc" id="k_m_pdc" name="k_m_pdc" value="0" units="substance"/>
+<parameter metaid="k_cat_pdc" id="k_cat_pdc" name="k_cat_pdc" value="3000" units="substance"/>
+<parameter metaid="k_m_pdc" id="k_m_pdc" name="k_m_pdc" value="500" units="substance"/>
 </listOfParameters>
 </kineticLaw>
 </reaction>
@@ -3526,6 +3544,11 @@
 </modifierSpeciesReference>
 </listOfModifiers>
 <kineticLaw metaid="CDMT00103">
+<annotation>
+<celldesigner:extension>
+<celldesigner:selectedFunction>NonPredefinedFunction</celldesigner:selectedFunction>
+</celldesigner:extension>
+</annotation>
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <divide/>
@@ -3543,8 +3566,8 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="k_cat_adh1" id="k_cat_adh1" name="k_cat_adh1" value="0" units="substance"/>
-<parameter metaid="k_m_adh1" id="k_m_adh1" name="k_m_adh1" value="0" units="substance"/>
+<parameter metaid="k_cat_adh1" id="k_cat_adh1" name="k_cat_adh1" value="10320" units="substance"/>
+<parameter metaid="k_m_adh1" id="k_m_adh1" name="k_m_adh1" value="1600" units="substance"/>
 </listOfParameters>
 </kineticLaw>
 </reaction>
@@ -3664,73 +3687,13 @@
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <times/>
-<ci> d_prot_global </ci>
+<ci> d_lexa </ci>
 <ci> s25 </ci>
 </apply>
 </math>
-</kineticLaw>
-</reaction>
-<reaction metaid="re48" id="re48" reversible="false" fast="false">
-<annotation>
-<celldesigner:extension>
-<celldesigner:reactionType>DISSOCIATION</celldesigner:reactionType>
-<celldesigner:baseReactants>
-<celldesigner:baseReactant species="s20" alias="sa43">
-<celldesigner:linkAnchor position="N"/>
-</celldesigner:baseReactant>
-</celldesigner:baseReactants>
-<celldesigner:baseProducts>
-<celldesigner:baseProduct species="s9" alias="sa9">
-<celldesigner:linkAnchor position="ESE"/>
-</celldesigner:baseProduct>
-<celldesigner:baseProduct species="s11" alias="sa39">
-<celldesigner:linkAnchor position="S"/>
-</celldesigner:baseProduct>
-</celldesigner:baseProducts>
-<celldesigner:connectScheme connectPolicy="direct">
-<celldesigner:listOfLineDirection>
-<celldesigner:lineDirection arm="0" index="0" value="unknown"/>
-<celldesigner:lineDirection arm="1" index="0" value="unknown"/>
-<celldesigner:lineDirection arm="2" index="0" value="unknown"/>
-</celldesigner:listOfLineDirection>
-</celldesigner:connectScheme>
-<celldesigner:editPoints num0="0" num1="0" num2="0" tShapeIndex="0">-0.5141129658889865,0.7933326947997787</celldesigner:editPoints>
-<celldesigner:line width="1.0" color="ff000000"/>
-</celldesigner:extension>
-</annotation>
-<listOfReactants>
-<speciesReference metaid="CDMT00119" species="s20">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa43</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-</listOfReactants>
-<listOfProducts>
-<speciesReference metaid="CDMT00120" species="s9">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa9</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-<speciesReference metaid="CDMT00121" species="s11">
-<annotation>
-<celldesigner:extension>
-<celldesigner:alias>sa39</celldesigner:alias>
-</celldesigner:extension>
-</annotation>
-</speciesReference>
-</listOfProducts>
-<kineticLaw metaid="CDMT00122">
-<math xmlns="http://www.w3.org/1998/Math/MathML">
-<apply>
-<times/>
-<ci> k_d_vp16_gal4_dimer </ci>
-<ci> s20 </ci>
-</apply>
-</math>
+<listOfParameters>
+<parameter metaid="d_lexa" id="d_lexa" name="lexA degradation rate" value="0.05" units="substance"/>
+</listOfParameters>
 </kineticLaw>
 </reaction>
 </listOfReactions>

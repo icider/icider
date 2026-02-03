@@ -180,7 +180,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s4" id="s4" name="PDC" compartment="default" initialAmount="0.01">
+<species metaid="s4" id="s4" name="PDC" compartment="default" initialConcentration="100" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -194,7 +194,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s5" id="s5" name="ADH" compartment="default" initialAmount="0.02" hasOnlySubstanceUnits="true" charge="0">
+<species metaid="s5" id="s5" name="ADH" compartment="default" initialConcentration="100" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -231,7 +231,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.45255474452554756,0.0 0.6277372262773726,0.0</celldesigner:editPoints>
+<celldesigner:editPoints>0.452554744525548,0.0 0.6277372262773735,2.220446049250313E-16</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 <celldesigner:listOfModification>
 <celldesigner:modification type="CATALYSIS" modifiers="s4" aliases="sa4" targetLineIndex="-1,2">
