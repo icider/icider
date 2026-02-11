@@ -8,25 +8,6 @@
 <celldesigner:listOfCompartmentAliases/>
 <celldesigner:listOfComplexSpeciesAliases/>
 <celldesigner:listOfSpeciesAliases>
-<celldesigner:speciesAlias id="sa1" species="s1">
-<celldesigner:activity>inactive</celldesigner:activity>
-<celldesigner:bounds x="186.0" y="427.5" w="70.0" h="25.0"/>
-<celldesigner:font size="12"/>
-<celldesigner:view state="usual"/>
-<celldesigner:usualView>
-<celldesigner:innerPosition x="0.0" y="0.0"/>
-<celldesigner:boxSize width="70.0" height="25.0"/>
-<celldesigner:singleLine width="1.0"/>
-<celldesigner:paint color="ffccff66" scheme="Color"/>
-</celldesigner:usualView>
-<celldesigner:briefView>
-<celldesigner:innerPosition x="0.0" y="0.0"/>
-<celldesigner:boxSize width="80.0" height="60.0"/>
-<celldesigner:singleLine width="1.0"/>
-<celldesigner:paint color="3fff0000" scheme="Color"/>
-</celldesigner:briefView>
-<celldesigner:info state="empty" angle="-1.5707963267948966"/>
-</celldesigner:speciesAlias>
 <celldesigner:speciesAlias id="sa3" species="s3">
 <celldesigner:activity>inactive</celldesigner:activity>
 <celldesigner:bounds x="34.5" y="479.0" w="93.0" h="22.0"/>
@@ -445,6 +426,63 @@
 </celldesigner:briefView>
 <celldesigner:info state="empty" angle="-1.5707963267948966"/>
 </celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa41" species="s20">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="50.0" y="399.5" w="70.0" h="25.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="70.0" height="25.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffccff66" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="80.0" height="60.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="3fff0000" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa1" species="s1">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="186.0" y="427.5" w="70.0" h="25.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="70.0" height="25.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffccff66" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="80.0" height="60.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="3fff0000" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
+<celldesigner:speciesAlias id="sa42" species="s21">
+<celldesigner:activity>inactive</celldesigner:activity>
+<celldesigner:bounds x="308.5" y="391.5" w="30.0" h="30.0"/>
+<celldesigner:font size="12"/>
+<celldesigner:view state="usual"/>
+<celldesigner:usualView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="30.0" height="30.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="ffffcccc" scheme="Color"/>
+</celldesigner:usualView>
+<celldesigner:briefView>
+<celldesigner:innerPosition x="0.0" y="0.0"/>
+<celldesigner:boxSize width="80.0" height="60.0"/>
+<celldesigner:singleLine width="1.0"/>
+<celldesigner:paint color="3fff0000" scheme="Color"/>
+</celldesigner:briefView>
+<celldesigner:info state="empty" angle="-1.5707963267948966"/>
+</celldesigner:speciesAlias>
 </celldesigner:listOfSpeciesAliases>
 <celldesigner:listOfGroups/>
 <celldesigner:listOfProteins>
@@ -470,27 +508,27 @@
 <listOfUnitDefinitions>
 <unitDefinition metaid="substance" id="substance" name="substance">
 <listOfUnits>
-<unit metaid="CDMT00002" kind="mole"/>
+<unit metaid="CDMT00052" kind="mole"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="volume" id="volume" name="volume">
 <listOfUnits>
-<unit metaid="CDMT00003" kind="litre"/>
+<unit metaid="CDMT00053" kind="litre"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="area" id="area" name="area">
 <listOfUnits>
-<unit metaid="CDMT00004" kind="metre" exponent="2"/>
+<unit metaid="CDMT00054" kind="metre" exponent="2"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="length" id="length" name="length">
 <listOfUnits>
-<unit metaid="CDMT00005" kind="metre"/>
+<unit metaid="CDMT00055" kind="metre"/>
 </listOfUnits>
 </unitDefinition>
 <unitDefinition metaid="time" id="time" name="time">
 <listOfUnits>
-<unit metaid="CDMT00017" kind="second"/>
+<unit metaid="CDMT00056" kind="second"/>
 </listOfUnits>
 </unitDefinition>
 </listOfUnitDefinitions>
@@ -498,20 +536,6 @@
 <compartment metaid="default" id="default" size="1" units="volume"/>
 </listOfCompartments>
 <listOfSpecies>
-<species metaid="s1" id="s1" name="ethylene" compartment="default" initialAmount="0.001">
-<annotation>
-<celldesigner:extension>
-<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
-<celldesigner:speciesIdentity>
-<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
-<celldesigner:name>ethylene</celldesigner:name>
-</celldesigner:speciesIdentity>
-<celldesigner:listOfCatalyzedReactions>
-<celldesigner:catalyzed reaction="re1"/>
-</celldesigner:listOfCatalyzedReactions>
-</celldesigner:extension>
-</annotation>
-</species>
 <species metaid="s3" id="s3" name="gene_VP16" compartment="default" initialAmount="0">
 <annotation>
 <celldesigner:extension>
@@ -662,7 +686,7 @@
 </celldesigner:extension>
 </annotation>
 </species>
-<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0.001" hasOnlySubstanceUnits="true" charge="0">
+<species metaid="s2" id="s2" name="Giberellin" compartment="default" initialAmount="0" hasOnlySubstanceUnits="true" charge="0">
 <annotation>
 <celldesigner:extension>
 <celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
@@ -734,14 +758,51 @@
 </celldesigner:extension>
 </annotation>
 </species>
+<species metaid="s20" id="s20" name="eth precursor" compartment="default" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>eth precursor</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s1" id="s1" name="ethylene" compartment="default" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>SIMPLE_MOLECULE</celldesigner:class>
+<celldesigner:name>ethylene</celldesigner:name>
+</celldesigner:speciesIdentity>
+<celldesigner:listOfCatalyzedReactions>
+<celldesigner:catalyzed reaction="re1"/>
+</celldesigner:listOfCatalyzedReactions>
+</celldesigner:extension>
+</annotation>
+</species>
+<species metaid="s21" id="s21" name="deg eth" compartment="default" initialAmount="0">
+<annotation>
+<celldesigner:extension>
+<celldesigner:positionToCompartment>inside</celldesigner:positionToCompartment>
+<celldesigner:speciesIdentity>
+<celldesigner:class>DEGRADED</celldesigner:class>
+<celldesigner:name>deg eth</celldesigner:name>
+</celldesigner:speciesIdentity>
+</celldesigner:extension>
+</annotation>
+</species>
 </listOfSpecies>
 <listOfParameters>
-<parameter metaid="k_trans_global" id="k_trans_global" name="Global Transcription Rate" value="0.000996" units="substance"/>
-<parameter metaid="d_mrna_global" id="d_mrna_global" name="Global mRNA Degradation Rate" value="5.77e-011" units="substance"/>
+<parameter metaid="k_trans_global" id="k_trans_global" name="Global Transcription Rate" value="9.96e-006" units="substance"/>
+<parameter metaid="d_mrna_global" id="d_mrna_global" name="Global mRNA Degradation Rate" value="0.0058" units="substance"/>
 <parameter metaid="k_tl_global" id="k_tl_global" name="Global Protein Translation Rate" value="3" units="substance"/>
 <parameter metaid="d_prot_global" id="d_prot_global" name="Global Protein Degradation Rate" value="0" units="substance"/>
 <parameter metaid="km_eth" id="km_eth" name="KM of ethylene (activation)" value="1.783e-005" units="substance"/>
 <parameter metaid="km_ga" id="km_ga" name="km of gibberellin (activator)" value="1.783e-005" units="substance"/>
+<parameter metaid="rate_ethylene" id="rate_ethylene" value="0.01" units="substance"/>
 </listOfParameters>
 <listOfReactions>
 <reaction metaid="re1" id="re1" reversible="false" fast="false">
@@ -819,7 +880,7 @@
 </celldesigner:extension>
 </annotation>
 </modifierSpeciesReference>
-<modifierSpeciesReference metaid="CDMT00009" species="s1">
+<modifierSpeciesReference metaid="CDMT00001" species="s1">
 <annotation>
 <celldesigner:extension>
 <celldesigner:alias>sa1</celldesigner:alias>
@@ -871,7 +932,7 @@
 <celldesigner:lineDirection index="2" value="unknown"/>
 </celldesigner:listOfLineDirection>
 </celldesigner:connectScheme>
-<celldesigner:editPoints>0.4287959761081428,-0.07953473750393059 0.5778057214712362,-0.05878654511160075</celldesigner:editPoints>
+<celldesigner:editPoints>0.4287959761081437,-0.07953473750393059 0.5778057214712362,-0.05878654511160164</celldesigner:editPoints>
 <celldesigner:line width="1.0" color="ff000000"/>
 </celldesigner:extension>
 </annotation>
@@ -1514,7 +1575,7 @@
 </apply>
 </math>
 <listOfParameters>
-<parameter metaid="d_tetr" id="d_tetr" name="Degredation Rate of TetR" value="2.39e-012" units="substance"/>
+<parameter metaid="d_tetr" id="d_tetr" name="Degredation Rate of TetR" value="0.001" units="substance"/>
 </listOfParameters>
 </kineticLaw>
 </reaction>
@@ -1561,7 +1622,7 @@
 </annotation>
 </speciesReference>
 </listOfProducts>
-<kineticLaw metaid="CDMT00001">
+<kineticLaw metaid="CDMT00002">
 <math xmlns="http://www.w3.org/1998/Math/MathML">
 <apply>
 <times/>
@@ -1622,6 +1683,101 @@
 <ci> s8 </ci>
 </apply>
 </math>
+</kineticLaw>
+</reaction>
+<reaction metaid="re25" id="re25" reversible="false" fast="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s20" alias="sa41"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s1" alias="sa1"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="CDMT00003" species="s20">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa41</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00004" species="s1">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa1</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<kineticLaw metaid="CDMT00005">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<times/>
+<ci> rate_ethylene </ci>
+<ci> s20 </ci>
+</apply>
+</math>
+</kineticLaw>
+</reaction>
+<reaction metaid="re26" id="re26" reversible="false" fast="false">
+<annotation>
+<celldesigner:extension>
+<celldesigner:reactionType>STATE_TRANSITION</celldesigner:reactionType>
+<celldesigner:baseReactants>
+<celldesigner:baseReactant species="s1" alias="sa1"/>
+</celldesigner:baseReactants>
+<celldesigner:baseProducts>
+<celldesigner:baseProduct species="s21" alias="sa42"/>
+</celldesigner:baseProducts>
+<celldesigner:connectScheme connectPolicy="direct" rectangleIndex="0">
+<celldesigner:listOfLineDirection>
+<celldesigner:lineDirection index="0" value="unknown"/>
+</celldesigner:listOfLineDirection>
+</celldesigner:connectScheme>
+<celldesigner:line width="1.0" color="ff000000"/>
+</celldesigner:extension>
+</annotation>
+<listOfReactants>
+<speciesReference metaid="CDMT00009" species="s1">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa1</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfReactants>
+<listOfProducts>
+<speciesReference metaid="CDMT00017" species="s21">
+<annotation>
+<celldesigner:extension>
+<celldesigner:alias>sa42</celldesigner:alias>
+</celldesigner:extension>
+</annotation>
+</speciesReference>
+</listOfProducts>
+<kineticLaw metaid="CDMT00051">
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+<apply>
+<times/>
+<ci> deg_ethylene </ci>
+<ci> s1 </ci>
+</apply>
+</math>
+<listOfParameters>
+<parameter metaid="deg_ethylene" id="deg_ethylene" value="0.01" units="substance"/>
+</listOfParameters>
 </kineticLaw>
 </reaction>
 </listOfReactions>
