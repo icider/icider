@@ -22,3 +22,5 @@
 
 # Build directories
 _minted-*/
+
+.DS_Store

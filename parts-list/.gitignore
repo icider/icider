@@ -14,3 +14,5 @@
 
 # PDF output (comment out if you want to track PDFs)
 # *.pdf
+
+.DS_Store
