@@ -1,1 +1,18 @@
-.DS_Store
+**/.DS_Store
+**/.vscode
+**/.claude
+**/.cursor
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
