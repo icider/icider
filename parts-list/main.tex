@@ -3,7 +3,6 @@
 % Packages
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage[numbers]{natbib}
@@ -35,9 +34,7 @@
 \newcommand{\seqbluebold}[1]{\textcolor{blue}{\textbf{\contour{blue}{#1}}}}
 
 % Document metadata
-\title{%
-\includegraphics[width=0.3\textwidth]{figures/logo/logo_icider.png}\\[1em]
-Parts List for iCIDER}
+\title{Inducible Circuits for Interchangeable Design and Engineering post-Ripening}
 \author{Archita Gupta}
 \author{Arvind Thevathasan}
 \author{Anthony Lee}
@@ -59,256 +56,253 @@ Parts List for iCIDER}
 
 Harvested plant tissues represent an under-explored frontier for biotechnology. Despite being detached from the parent plant, they remain metabolically active, maintaining the transcriptional and enzymatic capacity required for complex biosynthesis. Recent efforts in plant synthetic biology have successfully engineered autonomous regulation using endogenous signal sensing during the plant growth phase. For example, \citet{Ge2018} designed synthetic abscisic acid (ABA)-responsive promoters (Ap, Dp and ANDp) to drive the expression of ABA-signalling genes such as CARK1 and RCAR11. Similar approaches have demonstrated programmable ligand sensing via synthetic histidine-kinase signalling pathways and jasmonate-responsive activation of defence metabolite production \cite{Antunes2011, Zhou2016}.
 
-We aimed to extend this paradigm into the post-ripening phase. This allows us to engineer valuable compounds like peptides, vitamins, small-molecule drugs, etc., which are less-dependent on external inputs that are highly variable during the growth phase of plants. To achieve robust post-harvest control, we identified two hormones with a unique regulatory relationship.
+We aimed to extend this paradigm into the post-ripening phase. This allows us to engineer valuable compounds like peptides, vitamins, small-molecule drugs, etc., which are less dependent on external inputs that are highly variable during the growth phase of plants. To achieve robust post-harvest control, we identified two hormones with a unique regulatory relationship - ethylene and gibberellins.
 
-Ethylene: This hormone functions as the master transcriptional regulator of fruit ripening \citep{Liu2015,Zenoni2023}. It activates large transcription factor networks controlling cell wall remodelling, sugar metabolism, and volatile production. Critically, ethylene levels increase dramatically — often by orders of magnitude — following harvest \citep{FernndezCancelo2022}. This transition reflects a regulatory switch from autoinhibitory basal synthesis to autocatalytic positive feedback, creating a sharp and reliable temporal signal marking entry into the ripening phase.
+Ethylene functions as the master transcriptional regulator of fruit ripening \citep{Liu2015,Zenoni2023}. It activates large transcription factor networks controlling cell wall remodelling, sugar metabolism, and volatile production. Critically, ethylene levels increase dramatically — often by orders of magnitude — following harvest \citep{FernndezCancelo2022}. This transition reflects a regulatory switch from autoinhibitory basal synthesis to autocatalytic positive feedback, creating a sharp and reliable temporal signal marking entry into the ripening phase.
 
-Gibberellins: In contrast, gibberellins act as master regulators of fruit growth and developmental expansion programs. Gibberellin signalling declines substantially as fruit transitions from growth to ripening \citep{Lin2025,McAtee2013}. Importantly, reduced gibberellin signalling can promote ethylene biosynthesis, while ethylene signalling does not directly restore gibberellin levels \citep{Wu2023}.
+In contrast, gibberellins act as master regulators of fruit growth and developmental expansion programmes. Gibberellin signalling declines substantially as the fruit transitions from growth to ripening \citep{FernndezCancelo2022}. Importantly, reduced gibberellin signalling can promote ethylene biosynthesis, while ethylene signalling does not directly restore gibberellin levels.
 
+To exploit this, we developed iCIDER, a synthetic biology platform that converts endogenous post-harvest ethylene-gibberellin dynamics into programmable gene expression outputs. At the core of iCIDER is a NIMPLY logic gate, where expression is activated only when ethylene is present and gibberellin is absent. This architecture enables temporal filtering of expression such that gene activation occurs only once tissues have fully transitioned into the post-harvest ripening state. By tuning circuit parameters such as repressor binding affinity and enzyme degradation rate, we achieve control over both the magnitude and duration of expression, generating a transient post-harvest pulse of gene activity.
 
-To exploit this, we developed iCIDER, a synthetic biology platform that converts endogenous post-harvest ethylene-gibberellin dynamics into programmable gene expression outputs. At the core of iCIDER is a NIMPLY logic gate, where expression is activated only when ethylene is present and gibberellin is absent. This architecture enables temporal filtering of expression such that gene activation occurs only once tissues have fully transitioned into the post-harvest ripening state. By tuning circuit parameters such as repressor binding affinity and degradation rate, we achieve control over both the magnitude and duration of expression, generating a transient post-harvest pulse of gene activity.
+As a proof of concept, we applied iCIDER to regulate pyruvate decarboxylase (PDC) and alcohol dehydrogenase 1 (ADH1) expression, driving ethanol production in apples. Ethanol biosynthesis was selected because it is a two-step pathway drawing directly from central carbon metabolism \citep{Seitz2009}, minimising metabolic burden relative to more complex secondary metabolite pathways. The modular architecture of iCIDER allows straightforward replacement of output cassettes and incorporation of additional or inverted sensing modules, positioning this framework as a general strategy for programmable post-harvest traits in agriculture.
 
-As a proof of concept, we applied iCIDER to regulate pyruvate decarboxylase (PDC) and alcohol dehydrogenase 1 (ADH1), driving ethanol production in apples. Ethanol biosynthesis was selected because it is a two-step pathway drawing directly from central carbon metabolism \citep{Seitz2009}, minimizing metabolic burden relative to more complex secondary metabolite pathways. The modular architecture of iCIDER allows straightforward replacement of output cassettes and incorporation of additional or inverted sensing modules, positioning this framework as a general strategy for programmable post-harvest traits in agriculture.
+\section{Other Applications of iCIDER}
+Apple production faces significant losses from a range of biotic stressors like pests and abiotic factors including post-harvest degradation and environmental contamination, leading to an approximate 13-54\% fruit loss before packaging \citep{CHEN2022}. Current management strategies utilise exogenous chemical treatments to reduce post-harvest degradation \citep{Peertechz_IJASFT_2022}. Pesticides like terpenoids act through direct insecticidal activity on top of volatile anti-herbivory effects as well \citep{Agliassa2018} \citep{Unsicker2009}. Despite this, their high volatility and low solubility in water \citep{2025} make it challenging to use as a topical insecticide. Therefore, terpenoids endogenously produced in fruits could be used to alleviate these challenges and provide a strategy for pest-resistance. However, as terpenoid synthesis is toxic and metabolically expensive, continued synthesis post-harvest would deplete sugar stores and decrease fruit quality.  By inverting the phytohormone sensing module in iCIDER, we could inhibit terpenoid synthesis post-harvest to maintain pest protection pre-harvest and preserve quality post-harvest.
 
-\section{Applications}
-Apple production faces significant losses from a range of biotic stressors like pests and abiotic factors including post-harvest degradation and environmental contamination leading to an approximate 13-54\% lost before packaging \citep{CHEN2022}. Current management strategies utilise exogenous chemical treatments to reduce post-harvest degradation \citep{Peertechz_IJASFT_2022}. Pesticides like terpenoids act through direct insecticidal activity on top of volatile anti-herbivory effects as well \citep{Agliassa2018} \citep{Unsicker2009}. Despite this, their high volatility and low solubility in water \citep{2025} makes it challenging as a topical insecticide. Therefore, endogenously produced terpenoids in fruits could be used to alleviate these challenges and provide a strategy for pest-resistance. However, as terpenoid synthesis is toxic and metabolically expensive, continuing synthesis post-harvesting would deplete sugar stores and decrease fruit quality.  By inverting phytohormone sensing in iCIDER, we could inhibit terpenoid synthesis post-harvest for pest protection and quality preservation.
-
-Additionally, maximising farming yield and efficiency will be crucial to meet future global demand and allow adaptation to a changing environment.  Expansins, for example, promote faster fruit growth and higher quality when expressed pre-harvesting \citep{CHEN2022}. However, increased post-harvesting expression accelerates tissue softening and quality deterioration \citep{Wang2026}.  Our system could be employed here to promote expression during growth while triggering an off-state after harvesting to increase yield without compromising shelf-life.
+Additionally, maximising farming yield and efficiency will be crucial to meet future global demand and allow adaptation to a changing environment.  Expansins, for example, promote faster fruit growth and higher quality when expressed pre-harvest \citep{CHEN2022}. However, increased post-harvest expression accelerates tissue softening and quality deterioration \citep{Wang2026}.  Our system could be employed here to promote expression during growth while triggering an off-state after harvesting to increase yield without compromising shelf-life.
 
 
 \section{Chassis}
 The modular platform was developed to work in post-harvest plants, with the ripening-induced expression gated by endogenous hormone signals. As such, the chosen chassis was required to remain metabolically active after harvest, possess native ethylene and gibberellin signalling networks, and provide sufficient internal carbon to support biosynthesis. Our chosen chassis is apples (\textit{Malus domestica}), specifically the cultivar Winston.
 
-Apples are climacteric fruits that undergo a well-characterised ripening process driven by a sharp ethylene burst and transition from basal autoinhibitory system 1 to autocatalytic system 2 ethylene production following harvest \citep{Liu2015}. This transition causes transcriptional changes that lead to tightly regulated hormonal cross-talk, including interaction with gibberellins. These features provide a robust, endogenous signalling framework that can be repurposed for conditional gene expression without the need for external inducers.
+Apples are climacteric fruits that undergo a well-characterised ripening process driven by a sharp ethylene burst and transition from the basal autoinhibitory system 1 to the autocatalytic system 2 ethylene production following harvest \citep{Liu2015}. This transition causes transcriptional changes that lead to tightly regulated hormonal cross-talk, including interaction with gibberellins. These features provide a robust, endogenous signalling framework that can be repurposed for conditional gene expression without the need for external inducers.
 
 Following harvest, apples remain metabolically active for extended periods while being physically separated from the parent plant, enabling the synthetic gene circuit to operate without impacting plant growth or development. During fruit development, apples accumulate sugar to approximately $10-11$ g of sugar per $100$g of fruit tissue \citep{Li2021}. This provides an internal carbon source that can support autonomous biosynthesis without external nutrient supply. The combination of sustained metabolic activity, endogenous signalling and carbon availability allows the harvested fruit to function as a self-contained bioreactor. These autonomous behaviours are a key requirement of the proposed platform, enabling inducible expression in a physically contained system.
 
-In addition to these biological advantages, apples are the third most produced fruit globally, with approximately 149 megatons harvested in 2023 and a market value of around USD $\$148 billion$, representing a $37\%$ increase in production since 2010 \citep{FAO_FAOSTAT_2026} \citep{FAO_AgriculturalStats_2010_2024}. This sustained growth and established post-harvest infrastructure support the relevance of apples as a scalable chassis for a harvest-inducible platform, rather than being limited to laboratory-scale deployment.
+In addition to these biological advantages, apples are the third most produced fruit globally, with approximately 149 megatons harvested in 2023 and a market value of around 148 billion USD, representing a $37\%$ increase in production since 2010 \citep{FAO_FAOSTAT_2026} \citep{FAO_AgriculturalStats_2010_2024}. This sustained growth and established post-harvest infrastructure support the relevance of apples as a scalable chassis for a harvest-inducible platform, rather than being limited to laboratory-scale deployment.
 
-    From an engineering perspective, apples provide a tractable and modular chassis for implementing hormone-gated synthetic gene circuits. Ethylene and gibberellin signalling act through native promoter architecture, enabling synthetic modules to interface directly with endogenous regulatory networks rather than relying on orthogonal inducers. Crucially, many potential platform applications, including alcohol, terpenoid and expansin biosynthesis, are native apple pathways that are naturally regulated during development and ripening. This allows flux to be modulated through existing metabolic pathways rather than introducing entirely heterologous pathways, reducing metabolic burden and design complexity. As a result, output modules can be readily exchanged while preserving the same sensing module.
+From an engineering perspective, apples provide a tractable and modular chassis for implementing hormone-gated synthetic gene circuits. Ethylene and gibberellin signalling act through native promoter architecture, enabling synthetic modules to interface directly with endogenous regulatory networks rather than relying on orthogonal inducers. Crucially, many potential platform applications, including alcohol, terpenoid and expansin biosynthesis, are native apple pathways that are naturally regulated during development and ripening. This allows flux to be modulated through existing metabolic pathways rather than introducing entirely heterologous pathways, reducing metabolic burden and design complexity. As a result, output modules can be readily exchanged while preserving the same sensing module.
 
-    \clearpage
-    \section{Circuit Design}
+\clearpage
+\section{Circuit Design}
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.8\textwidth]{figures/ciruit/circuit_main.png}
-        \caption{\textbf{Circuit overview}. Input module is shown in grey. The ethanol-producing cassette is shown in blue. Self-amplification and cassette expression are depicted in green, and circuit repression is shown in red.}
-        \label{fig:circuit-overview}
-    \end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ciruit/circuit_main.png}
+    \caption{\textbf{Circuit overview}. Input module is shown in grey. The ethanol-producing cassette is shown in blue. Self-amplification and cassette expression are depicted in green, and circuit repression is shown in red.}
+    \label{fig:circuit-overview}
+\end{figure}
 
-    The circuit architecture, as shown in Figure~\ref{fig:circuit-overview}, is composed of four distinct modules: (1) a phytohormone sensor that implements a NIMPLY logic gate; (2) an activation module that drives robust biosynthesis from the cassette; (3) a repression module that terminates cassette expression; and (4) the cassette module itself. At present, the timing of circuit activation and repression is determined by the specific cassette used, and precise control over the delay between activation and repres
-    sion remains a key challenge. The detailed circuit diagram is shown in Figure~\ref{fig:circuit-detailed}.
+The circuit has four modules (Figure~\ref{fig:circuit-overview}): the plant hormone (phytohormone) sensor in the form of a NIMPLY gate, the activation module which drives strong biosynthesis of the cassette, the repression module which suppresses the circuit, and the cassette module. Currently, temporal dynamics are cassette-dependent and adjusting the activation-repression delay remains a limitation.
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_complete.png}
-        \caption{\textbf{Detailed circuit}. Activation is shown by green arrows whilst inhibition is shown by red inhibition arrows. The phytohormone sensor, activator module, repressor module and cassette module are shown in grey, green, red and blue boxes respectively. Conversion of pyruvate to ethanol, with associated enzymes, are shown at the bottom.}
-        \label{fig:circuit-detailed}
-    \end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_complete.png}
+    \caption{\textbf{Detailed circuit}. Activation is shown by green arrows whilst inhibition is shown by red inhibition arrows. The phytohormone sensor, activator module, repressor module and cassette module are shown in grey, green, red and blue boxes respectively. Conversion of pyruvate to ethanol, with associated enzymes, are shown at the bottom.}
+    \label{fig:circuit-detailed}
+\end{figure}
 
 
-    \subsection{Phytohormone Sensor}
+\subsection{Phytohormone Sensor}
 
-    For our proof of concept, we aimed to express PDC and ADH1 for ethanol biosynthesis post-harvest by exploiting the endogenous fruit ripening mechanism. We decided on ET as it is the most studied phytohormone regulating ripening in climacteric fruit, including apples \citep{Liu2015,Zenoni2023}. Studies showed that ethylene production in \textit{M. domestica} increases 1000-fold post-harvest and cold-storage \citep{FernndezCancelo2022}, making it an ideal candidate as a post-harvest indicator. However, ET is highly volatile and is prone to stochastic changes from abiotic and biotic stresses \citep{Saltveit1999}, which can cause premature activation of our circuit. Therefore, a secondary ripening signal was introduced to enhance robustness to our circuit by providing redundancy and protecting activation from stochastic fluxes of ET.
+For our proof of concept, we aimed to express PDC and ADH1 for ethanol biosynthesis post-harvest by exploiting the endogenous fruit ripening mechanism. We decided on ET as it is the most studied phytohormone regulating ripening in climacteric fruit, including apples \citep{Liu2015,Zenoni2023}. Studies showed that ethylene production in \textit{M. domestica} increases 1000-fold post-harvest and cold-storage \citep{FernndezCancelo2022}, making it an ideal candidate as a post-harvest indicator. However, ET is highly volatile and is prone to stochastic changes from abiotic and biotic stresses \citep{Saltveit1999}, which can cause premature activation of our circuit. Therefore, a secondary ripening signal was introduced to enhance robustness to our circuit by providing redundancy and protecting activation from stochastic fluxes of ET.
 
-    The secondary phytohormones considered were auxin and gibberellins. Studies showed that auxin and ethylene have inter-dependent relationships featuring complex crosstalk. In apples, auxin has been shown to regulate ethylene in fruit ripening \citep{Yue2020}, while ET modulates auxin to restrict plant growth in Arabidopsis \citep{Vaseva2018}. GA on the other hand is unaffected by ethylene; exogenous treatment with ET does not reverse the ripening inhibition induced by GA \citep{Wu2023}. Additionally, GA accumulates during fruit growth and declines during ripening \citep{Lin2025,McAtee2013}. Put together, we decided to use the presence of ethylene and the absence of gibberellin as our indicator for post-harvest ripening.
+The secondary phytohormones considered were auxin and gibberellins. Studies showed that auxin and ethylene have an inter-dependent relationship featuring complex crosstalk. In apples, auxin has been shown to regulate ethylene in fruit ripening \citep{Yue2020}, while ET modulates auxin to restrict plant growth in \textit{Arabidopsis} \citep{Vaseva2018}. GA on the other hand is unaffected by ET; exogenous treatment with ET does not reverse the ripening inhibition induced by GA \citep{Wu2023}. Additionally, GA accumulates during fruit growth and declines during ripening \citep{Lin2025,McAtee2013}. Put together, we decided to use the presence of ethylene and the absence of gibberellin as our indicator for post-harvest ripening.
 
-    To detect ethylene's presence, we decided to use $P_{MdERF3}$, the promoter for ethylene response factor 3 (MdERF3) in \textit{M. domestica}. Ethylene activates MdEIL1 to induce MdMYB1 and subsequently inducing MdERF3 \citep{Wang2022,An2018}. For Gibberellins, we decided to use PMdGA2ox6, a promoter for gibberellin 2 oxidase 6 in \textit{M. domestica}. GA2ox family was found to be upregulated after GA treatment \citep{Zhang2019}. MdGA2ox6 was specifically found to be the most differentially expressed between 100 days after anthesis and harvest conditions \citep{Yan2024}.
+To detect ethylene's presence, we decided to use $P_{MdERF3}$, the promoter for ethylene response factor 3 (MdERF3) in \textit{M. domestica}. Ethylene activates MdEIL1 to induce MdMYB1, subsequently inducing MdERF3 \citep{Wang2022,An2018}. For gibberellins, we decided to use PMdGA2ox6, a promoter for gibberellin 2 oxidase 6 (GA2ox6) in \textit{M. domestica} as the GA2ox family was found to be upregulated after GA treatment \citep{Zhang2019}. MdGA2ox6 was specifically found to be the most differentially expressed between 100 days post-anthesis and harvest conditions \citep{Yan2024}.
 
-    \subsection{NIMPLY Gate}
-    To achieve activation when ET is high and GA is low, we implement a NOT-GA AND ET (NIMPLY) logic function (Figure~\ref{fig:sensor-modules}). When both inputs are satisfied, the split GAL4 and VP16 fragments are expressed and associate via heterodimerising leucine zippers to reconstitute a functional activator for downstream expression.
+\subsection{NIMPLY Gate}
+To achieve activation when ET is high and GA is low, we implemented a NOT-GA AND ET (NIMPLY) logic function (Figure~\ref{fig:sensor-modules}). When both inputs are satisfied, the split GAL4 and VP16 fragments are expressed and associate via heterodimerising leucine zippers to reconstitute a functional activator for downstream expression.
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_nimply_gate.png}
-        \caption{\textbf{Sensor modules}. Top panel shows the module behaviour during pre-ripening conditions, where ethylene is low and gibberellin is high. Bottom panel shows post-ripening behaviour, where the presence of ethylene and absence of gibberellin induces the expression of VP16 and GAL4. ET: ethylene. GA: gibberellin.}
-        \label{fig:sensor-modules}
-    \end{figure}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_nimply_gate.png}
+    \caption{\textbf{Sensor modules}. Top panel shows the module behaviour during pre-ripening conditions, where ethylene is low and gibberellin is high. Bottom panel shows post-ripening behaviour, where the presence of ethylene and absence of gibberellin induces the expression of VP16 and GAL4. ET: ethylene. GA: gibberellin.}
+    \label{fig:sensor-modules}
+\end{figure}
 
 
-    Gibberellin induces the expression of TetR--SRDX--PEST via PMdGA2ox6, which binds TetO sites and, via its SRDX repression domain, inhibits GAL4 expression placed under the constitutive 35S promoter. The SRDX domain, derived from the plant EAR motif family, is a well-characterised and highly potent repressor in plants \citep{Markel2024}. EAR/SRDX domains have been shown to outperform non-EAR repression domains, including bacterial repressors like TetR, which on their own bind DNA but generally fail to recruit plant co-repressors efficiently \citep{Padidam2003}. Consequently, fusing SRDX to DNA-binding domains has been widely demonstrated to enhance repression strength in plants \citep{Szymczyk2024,Ferreira2024}. SRDX improves robustness of the NIMPLY gate by reducing stochastic derepression events. The PEST tag is a eukaryotic degradation signal that accelerates protein turnover and provides enhanced temporal control and reactivity of the circuit. This improves temporal precision, as without the PEST tag, inhibition by TetR--SRDX may persist even when gibberellin is absent. Ferreira et al.\ demonstrated that fusions of a bacterial DNA-binding repressor (FapR) with SRDX and PEST improve the efficiency of Boolean gate designs in plants \citep{Ferreira2024}. Together, these mechanisms minimise leaky expression of the NOT gate.
+Gibberellin induces the expression of TetR--SRDX--PEST via PMdGA2ox6, which binds TetO sites and, via its SRDX repression domain, inhibits the expression of GAL4, which is downstream of the constitutive 35S promoter. The SRDX domain, derived from the plant EAR motif family, is a well-characterised and highly potent repressor in plants \citep{Markel2024}. EAR/SRDX domains have been shown to outperform non-EAR repression domains, including bacterial repressors like TetR, which, on their own, bind DNA but generally fail to recruit plant co-repressors efficiently \citep{Padidam2003}. Consequently, fusing SRDX to DNA-binding domains has been widely demonstrated to enhance repression strength in plants \citep{Szymczyk2024,Ferreira2024}. Therefore, the strong repression of SRDX improves the robustness of the NIMPLY gate by reducing stochastic derepression events. The PEST tag is a eukaryotic degradation signal that accelerates protein turnover and provides enhanced temporal control and reactivity of the circuit. This improves temporal precision, as, without the PEST tag, inhibition by TetR--SRDX may persist even when gibberellin is absent. Ferreira et al.\ demonstrated that fusions of a bacterial DNA-binding repressor (FapR) with SRDX and PEST improve the efficiency of Boolean gate designs in plants \citep{Ferreira2024}. Together, these mechanisms minimise leaky expression of the NOT gate.
 
-    Once both VP16 and GAL4 are available, their association is catalysed by RR1234L and EE1234L, two halves of a synthetic heterodimerising leucine zipper. Crucially, RR1234L and EE1234L exhibit a low dissociation constant of \(K_D \approx 10^{-15}\,\mathrm{M}\), indicating an immediate and strong association \citep{EwenCampen2023,Moll2001}. This architecture allows the gate to operate predictably within the complex endogenous signalling environment of ripening fruit.
+Once both VP16 and GAL4 are available, their association is catalysed by $RR_{1234}L$ and $EE_{1234}L$, two halves of a synthetic heterodimerising leucine zipper. Crucially, $RR_{1234}L$ and $EE_{1234}L$ exhibit a low dissociation constant of \(K_D \approx 10^{-15}\,\mathrm{M}\), indicating an immediate and strong association \citep{EwenCampen2023,Moll2001}. This architecture allows the gate to operate predictably within the complex endogenous signalling environment of ripening fruit.
 
-    \subsection{Activator Module}
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_activator_module.png}
-        \caption{\textbf{Downstream VP16-GAL4-induced modules.} \textbf{(A)} Self-activation module. \textbf{(B)} Repressor module. \textbf{(C)} Cassette module which produces enzymes for ethanol conversion.}
-        \label{fig:activator-modules}
-    \end{figure}
+\subsection{Activator Module}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/ciruit/circuit_activator_module.png}
+    \caption{\textbf{Downstream VP16-GAL4-induced modules.} \textbf{(A)} Self-activation module. \textbf{(B)} Repressor module. \textbf{(C)} Cassette module which produces enzymes for ethanol conversion.}
+    \label{fig:activator-modules}
+\end{figure}
 
-    The activator module is made of high affinity UAS site upstream of a min35s promoter and GAL4-VP16 fusion activator, as shown in Figure~\ref{fig:activator-modules}A. The minimal 35s promoter are derived from Cauliflower mosaic virus (CaMV) 35s promoter and it is known for its minimal to no expression \citep{Amack2020}. The min35S promoter, derived from the Cauliflower mosaic virus (CaMV) 35S promoter, is transcriptionally inactive in isolation and requires upstream enhancer elements for activation \citep{Engineer2005}. The enhancer sequence used is from the UAS/GAL4 system which was also proven to work in plants \citep{Iacopino2022,Waki2012}. The specific high affinity UAS site used is of gal3 gene \citep{Donovan2019}. Self-amplification is activated by associated GAL4/VP16 inducing the expression of additional GAL4-VP16 fusion proteins. This feedback binarises ethylene signals upon reaching a threshold.
+The activator module is made of a high affinity UAS site upstream of a min35s promoter and GAL4-VP16 fusion activator gene, as shown in Figure~\ref{fig:activator-modules}A. The min35S promoter, derived from the Cauliflower mosaic virus (CaMV) 35S promoter, is transcriptionally inactive in isolation and requires upstream enhancer elements for activation \citep{Engineer2005,Amack2020}. The enhancer sequence used is from the UAS/GAL4 system which has also been proven to work in plants \citep{Iacopino2022,Waki2012}. The specific high affinity UAS site used is taken from the promoter of the yeast \textit{gal3} gene \citep{Donovan2019}. Self-amplification is activated by associated GAL4-VP16 inducing the expression of additional GAL4-VP16 fusion proteins. This feedback binarises ethylene signals upon reaching a threshold.
 
-    \subsection{Repressor Module}
-    The repressor module regulates the system to generate pulse-like expression of the cassette module. It comprises a low affinity UAS site upstream to a min35s promoter regulating expression of LexA, which represses the cassette module, as shown in Figure~\ref{fig:activator-modules}B. The UAS site is derived from the fourth UAS tandem of gal10 gene and has a higher KD than the high affinity UAS site by 10-fold \citep{Donovan2019}. This reduced binding affinity introduces a delay in activation, ensuring that repression only engages after an initial phase of expression. LexA binds to LexA operator sites or SOS boxes to repress transcription in plants \citep{Zuo}. Crucially LexA is orthogonal to TetR, making it appropriate for our system. Repression strength can be further tuned by fusing LexA to the plant-derived SRDX repression domain or WRKY7 domain \citep{Kim2006,Hiratsu2003,Yagi2010}, enabling more efficient transcriptional silencing and lowering the output. Factors such as metabolic burden or product toxicity may require different repression strengths. Thus, the optimal strength of the repressor module depends on the specific cassette module. For our context, our modelling suggests including SRDX would be too strong, hence we chose LexA in isolation.
+\subsection{Repressor Module}
+The repressor module regulates the system to generate pulse-like expression of the cassette module. It comprises a low affinity UAS site upstream of a min35s promoter regulating the expression of LexA, which represses the cassette module, as shown in Figure~\ref{fig:activator-modules}B. The UAS site is derived from the fourth tandem UAS upstream of the yeast \textit{gal10} gene and has a higher $K_D$ than the high affinity UAS site used in the activator module \citep{Donovan2019}. This reduced binding affinity introduces a delay in repressor expression, ensuring that repression only occurs after an initial phase of cassette module expression. A prokaryotic repressor was intentionally chosen as it is less efficient in eukaryotic systems (LINK). LexA binds to LexA operator sites or SOS boxes \citep{Zuo}. Crucially, LexA is orthogonal to TetR, making it appropriate for our system. Repression strength can be further tuned by fusing LexA to the plant-derived SRDX, WRKY7 repression domain \citep{Kim2006,Hiratsu2003,Yagi2010}, or by altering LexA binding affinity through SOS boxes mutations (\citep{Wertman1985}), enabling more efficient transcriptional silencing, thereby lowering the system's output. The ability to tune output levels is especially important as factors such as metabolic burden or product toxicity may necessitate different repressor strengths. Thus, the optimal strength of the repressor module depends on the specific cassette module. For the context of ADH1 and PDC expression, our modelling suggests that weak repression is required, hence, we chose to use LexA in isolation.
 
-    \subsection{Cassette Module}
-    The cassette module is positioned downstream of all regulatory elements and is fully interchangeable. For our proof-of-concept, shown in Figure~\ref{fig:activator-modules}C, the cassette encodes ADH1 and PDC, linked by an F2A peptide to enable polycistronic expression from a single transcript via ribosomal skipping \citep{Zhang2017}, resulting in approximately equimolar ADH1 and PDC. Modelling indicated that the expression of ADH1 and PDC led to uncontrolled ethanol production. However, addition of PEST tag to both ADH1 and PDC led to the accumulation of acetaldehyde which is highly toxic and carcinogenic \citep{Seitz2009}. Therefore, a PEST tag was added to PDC only to promote its degradation for controlled ethanol production without acetaldehyde accumulation.
+\subsection{Cassette Module}
+The cassette module is positioned downstream of all regulatory elements and is fully interchangeable. For our proof-of-concept, as shown in Figure~\ref{fig:activator-modules}C, the cassette encodes ADH1 and PDC, linked by an F2A peptide to enable polycistronic expression from a single transcript via ribosomal skipping \citep{Zhang2017}. This results  in approximately equimolar concentrations of ADH1 and PDC. Modelling indicated that the production of ADH1 and PDC without active degradation led to uncontrolled ethanol production. However, the addition of a PEST tag to both ADH1 and PDC led to the accumulation of acetaldehyde which is highly toxic and carcinogenic \citep{Seitz2009}. Therefore, a PEST tag was added to PDC only to promote its degradation for controlled ethanol production without acetaldehyde accumulation.
 
-    \clearpage
-    \section{Assembly Method}
-    To assemble the level 0 parts in our circuit, we will be using Golden Braid (GB) 3.0 in \textit{Escherichia coli}, before using Agrobacterium-mediated delivery into the in vivo host, \textit{Nicotiana Benthamiana}.
+\clearpage
+\section{Assembly Method}
+To assemble the level 0 parts in our circuit, we will be using Golden Braid (GB) 3.0 in \textit{Escherichia coli}, before using Agrobacterium-mediated delivery into the \textit{in vivo} host, \textit{Nicotiana benthamiana}.
 
-    GB 3.0 is a modular cloning system designed for rapid assembly of multiple gene parts specifically for genetic modification in plants, and benefits from established parts and vector libraries \citep{VazquezVilar2017}. We use \textit{E. coli} as the standard propagation host for the GB vectors, grows quickly, gives high plasmid yields \citep{Fakruddin2013} and is straightforward to isolate verified constructs.
+GB 3.0 is a modular cloning system designed for rapid assembly of multiple gene parts specifically for genetic modification in plants, and benefits from established parts and vector libraries \citep{VazquezVilar2017}. We use \textit{E. coli} as the standard propagation host for the GB vectors, as it grows quickly, gives high plasmid yields \citep{Fakruddin2013} and requires a straightforward protocol to isolate verified constructs.
 
-    \subsection{Formatting of parts}
+\subsection{Formatting of parts}
+GB 3.0 constructs are made up of "levels". Level 0 involves individual parts e.g. promoters, coding sequences (CDS), and terminators. Level 1 constructs are assembled from level 0 parts to form transcriptional units (TU). Level 2 are multi-TU constructs.
 
-    GB 3.0 constructs are made up of "levels". Level 0 are individual parts e.g. promoter, coding sequences (CDS), and terminator. Level 1 constructs are assembled from level 0 parts into transcriptional units (TU). Level 2 are multi-cassette constructs.
+Each GB 3.0 level 0 part is formatted into plasmids according to the PhytoBrick standard where each part type (promoter, CDS, terminator) is flanked by specific Type IIS restriction enzyme sites that generate overhangs. Promoters are flanked by 5' GGAG and 3'AATG slots, CDS are flanked by 5'AATG and 3'GCTT slots, and terminators are flanked by 5' GCTT and 3' CGCT, such that the 3' slot of one part is complementary to the  5' slot of its adjacent part \citep{SarrionPerdigones2013}. To prevent off-target cleavage, each part was screened for internal type IIS BsaI and BsmBI restriction sites.
 
-    Each GB 3.0 level 0 part is formatted into plasmids according to the PhytoBrick standard where each part type (promoter, CDS, terminator) is flanked by specific type IIS restriction enzyme sites that generate overhangs, where promoters are flanked by 5' GGAG and 3'AATG slots, CDS are flanked by 5'AATG and 3'GCTT slots, and terminators flanked by 5' GCTT and 3' CGCT, such that the 3' slot of one part is complementary to the next 5' slot \citep{SarrionPerdigones2013}. To prevent premature cutting, every part was screened for internal type IIS BsaI and BsmBI restriction sites.
+Once formatted, part sequences can be obtained by PCR amplification or by DNA synthesis if required. Level 0 parts are then cloned into level 1 vectors, ready for downstream $\alpha$ and $\omega$ assembly into level 2 vectors.
 
-    Once formatted, part sequences can be obtained by PCR amplification or by DNA synthesis if required. Level 0 parts are then cloned into level 1 vectors, ready for downstream alpha and omega assembly into level 2.
+\subsection{Assembly logic}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.97\textwidth]{figures/assembly/assembly.pdf}
+    \caption{\textbf{iCIDER circuit assembly using GoldenBraid3.0}. BsaI and BsmBI restriction enzyme (RE) sites are shown as orange and grey triangles respectively. Plasmids carry kanamycin resistance (KanR; light blue) and omega plasmids carry streptomycin resistance (SmR; light green). Following construction and verification in \textit{E. coli}, the final pCIDER binary vector is electroporated into \textit{Agrobacterium tumefaciens} (with a helper plasmid providing \textit{vir} genes) for DNA transfer and transient expression in \textit{Nicotiana benthamiana} via agroinfiltration.}
+    \label{fig:assembly}
+\end{figure}
 
-    \subsection{Assembly logic}
+Unlike traditional cloning, our assembly approach follows the recursive logic of GB 3.0, which allows level~0 parts to be combined into complex multi-gene circuits using alternating Type IIS restriction enzymes (see Figure \ref{fig:assembly}). Each assembled construct retains its terminal restriction sites, enabling further rounds of assembly. However, if the same enzyme was used in consecutive steps, it would cut previously assembled products. Therefore, by alternating enzymes and using matching vector overhangs, the integrity of each assembled module is maintained throughout the process.
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.97\textwidth]{figures/assembly/assembly.pdf}
-        \caption{\textbf{iCIDER circuit assembly using GoldenBraid3.0}. BsaI and BsmBI restriction enzyme (RE) sites are shown as orange and grey triangles respectively. Plasmids carry kanamycin resistance (KanR; light blue) and omega plasmids carry streptomycin resistance (SmR; light green). Following construction and verification in \textit{E. coli}, the final pCIDER binary vector is electroporated into \textit{Agrobacterium tumefaciens} (with a helper plasmid providing \textit{vir} genes) for DNA transfer and transient expression in \textit{Nicotiana benthamiana} via agroinfiltration.}
-        \label{fig:assembly}
-    \end{figure}
+Figure \ref{fig:assembly}A illustrates how level~1 vectors, prepared in the PhytoBrick format, are assembled into a pDGB1\_\(\alpha\) destination vector using \textit{BsaI}. This yields three separate plasmids: the sensor plasmid (\(\alpha 1\)), containing the circuit's sensing components, the feedback plasmid (\(\alpha 2\)), which holds regulatory elements, and the cargo plasmid (\(\alpha 3\)), carrying the interchangeable cassette. This modular design permits individual modification of any of \(\alpha 1\), \(\alpha 2\), or \(\alpha 3\) without the need to reassemble the entire construct.
 
+Figure \ref{fig:assembly}B depicts the \(\Omega\)-assembly step, where a second reaction using \textit{BsmBI} combines \(\alpha 1\) and \(\alpha 2\) into the pDGB1\_\(\Omega\) vector, resulting in the stable modular construct pCIDER\_\(\alpha\) that encodes the core circuitry of iCIDER.
 
-    Unlike traditional cloning, our assembly approach follows the recursive logic of GB 3.0, which allows level~0 parts to be combined into complex multi-gene circuits using alternating Type IIS restriction enzymes (see Figure \ref{fig:assembly}). Each assembled construct retains its terminal restriction sites, enabling further rounds of assembly. However, if the same enzyme were used in consecutive steps, it would cut previously assembled products. Therefore, by alternating enzymes and using matching vector overhangs, the integrity of each assembled module is maintained throughout the process.
+Figure \ref{fig:assembly}C shows the final integration step, in which either an \(\alpha 2\)-assembly or the \(\Omega\)-assembly product is merged with the cargo plasmid (\(\alpha 3\)) to produce a binary vector. This final binary vector is flanked by left and right border (LB/RB) T-DNA sequences required for Agrobacterium-mediated plant transformation.
 
-    Figure \ref{fig:assembly}A illustrates how level~1 vectors, prepared in the PhytoBrick format, are assembled into a pDGB1\_\(\alpha\) destination vector using \textit{BsaI}. This yields three separate plasmids: the sensor plasmid (\(\alpha 1\)), containing the circuit's sensing components; the feedback plasmid (\(\alpha 2\)), which holds regulatory elements; and the cargo plasmid (\(\alpha 3\)), carrying the interchangeable cassette. This modular design permits individual modification of any of \(\alpha 1\), \(\alpha 2\), or \(\alpha 3\) without the need to reassemble the entire construct.
+After each \(\alpha 2\)- or \(\Omega\)-assembly, \textit{E.~coli} transformants are plated with the antibiotic corresponding to the resistance marker in the destination backbone, to select for correctly assembled constructs. Multiple colonies are then screened by colony PCR, with primers that span the new junctions formed between level~0 parts, to confirm correct part order and orientation. Restriction digest profiling and Sanger sequencing can be used used to identify any mutations before the final binary vector is electroporated into \textit{Agrobacterium tumefaciens}.
 
-    Figure \ref{fig:assembly}B depicts the \(\Omega\)-assembly step, where a second reaction using \textit{BsmBI} combines \(\alpha 1\) and \(\alpha 2\) into the pDGB1\_\(\Omega\) vector, resulting in the stable modular construct pCIDER\_\(\alpha\) that encodes the core circuitry of iCIDER.
+\subsection{\textit{In vivo} Characterisation}
+Agrobacteria-mediated delivery is a well-established rapid protocol for genetic modification in plants \citep{Anami2013}. Wounded plant tissues induce the activation of virulence (vir) genes, which transfer LB/RB-flanked T-DNA into plant cells via the type IV bacterial secretion system \citep{Hamel2025}. For proof-of-concept, \textit{N. benthamiana }will be used as our chassis as it is highly amenable to Agrobacterium-mediated agroinfiltration delivery \citep{Beritza2024}. Following validation in \textit{N. benthamiana}, the system will be translated to\textit{ M. domestica}, from which stable transgenic lines will be made, enabling evaluation in apples. Finally, ethanol production will be quantified by gas chromatography-mass spectrometry \citep{Neelamegam2012} using Imperial's facilities. This can help us validate circuit function and gene expression.
 
-    Figure \ref{fig:assembly}C shows the final integration step, in which either an \(\alpha 2\)-assembly or the \(\Omega\)-assembly product is merged with the cargo plasmid (\(\alpha 3\)) to produce a binary vector. This final binary vector is flanked by left and right border (LB/RB) T-DNA sequences required for Agrobacterium-mediated plant transformation.
+\newpage
+\clearpage
+\section{Level 0 Parts}
+\subsection{Promoters}
+\input{tables/promoters}
 
-    After each \(\alpha 2\)- or \(\Omega\)-assembly, \textit{E.~coli} transformants are plated on the antibiotic corresponding to the resistance marker in the destination backbone to select for correctly assembled constructs. Multiple colonies are then screened by colony PCR across the new junctions formed between level~0 parts to confirm correct part order and orientation. Restriction digest profiling and Sanger sequencing are used to identify any mutations before the final binary vector is electroporated into \textit{Agrobacterium tumefaciens}.
+\subsection{Kozak Sequences}
+Kozak sequences are eukaryotic regions upstream of the CDS where the ribosome binds, functionally analogous to prokaryotic ribosome-binding sites. These sequences are regions directly upstream of \textit{Arabidopsis} genes that have been shown to affect translational efficiency. Kim et al. \citep{Kim2013} quantified the efficiency of various sequences using a GFP reporter construct, and the most optimal sequences were selected.
 
-    \subsection{In vivo Characterisation}
-    Agrobacteria-mediated delivery is a well-established rapid protocol for genetic modification in plants \citep{Anami2013}. Wounded plant tissues induce the activation of virulence (vir) genes, which transfers LB/RB-flanked T-DNA into plant cells via the type IV bacterial secretion system \citep{Hamel2025}. For proof-of-concept, \textit{N. benthamiana }will be used as our chassis as it is highly amenable to Agrobacterium-mediated agroinfiltration delivery\citep{Beritza2024}. Following validation, the system will be translated to\textit{ M. domestica}, from which stable transgenic lines will be made, enabling evaluation in apples. Finally, ethanol production will be quantified by gas chromatography-mass spectrometry \citep{Neelamegam2012} using Imperial's facilities. This helps us validate circuit function and gene expression.
+\input{tables/kozak}
 
-    \clearpage
-    \section{Level 0 Parts}
-    \subsection{Promoters}
-    \input{tables/promoters}
+\subsection{Protein Coding Sequences (CDS)}
+Sources are listed in the order of the part sequence, with components separated by ";". Start and stop codons are highlighted in bold. Many parts were derived from bacterial or yeast genes and have been codon-optimised for plant expression, except SRDX, PEST, and LexA, which already had plant-compatible sequences. Codon optimisation was performed using the NovoPro Labs codon optimisation tool \citep{novoprolabs_codon_optimization} or, if not specified, by an in-house R script (see Appendix~\ref{sec:additional-files-code}) implementing \textit{Arabidopsis thaliana} codon usage preferences as described by Sahoo, Das \& Rakshit \citep{Sahoo2019}.
 
-    \subsection{Kozak}
-    Kozak sequences are eukaryotic regions upstream of the CDS where the ribosome binds, functionally analogous to prokaryotic ribosome-binding sites. These sequences are regions directly upstream of Arabidopsis genes that have been shown to affect translational efficiency. Kim et al. \citep{Kim2013} quantified the efficiency of various sequences using a GFP reporter construct, and the most optimal sequences were selected (Table~\ref{tab:kozak}).
+\input{tables/cds}
 
-    \input{tables/kozak}
+\subsection{Terminators}
+\input{tables/terminators}
 
-    \subsection{Protein Coding Sequences (CDS)}
-    The protein coding sequences used in the circuit are listed in Table~\ref{tab:cds}. Sources are listed in the order of the part sequence, with components separated by ";". Start and stop codons are highlighted in bold. Many parts were derived from bacterial or yeast genes and have been codon-optimised for plant expression, except SRDX, PEST, and LexA, which already had plant-compatible sequences. All remaining components were codon-optimised for plant expression, either using the NovoPro Labs codon optimisation tool \citep{novoprolabs_codon_optimization} or, if not specified, by an in-house R script (see Appendix~\ref{sec:additional-files-code}) implementing \textit{Arabidopsis thaliana} codon usage preferences as described by Sahoo, Das \& Rakshit \citep{Sahoo2019}.
+\subsection{Spacers}
+Spacer sequences are placed between terminators and the promoter of subsequent genes that produce a strong secondary structure to prevent transcriptional readthrough. These sequences are based on the 10 helical secondary structure that forms in the 5' external transcribed spacer of yeast pre-rRNA.
+\input{tables/spacers}
 
-    \input{tables/cds}
+\subsection{Regulatory Elements}
+Regulatory elements are DNA sequences that control gene expression by serving as binding sites for transcriptional regulators. These include upstream activating sequences (UAS) for GAL4 binding, SOS boxes for LexA binding, and tetracycline operators (TetO) for TetR binding.
+\input{tables/regulator_elements}
 
-    \subsection{Terminators}
-    The terminators used in the circuit are listed in Table~\ref{tab:terminators}.
-    \input{tables/terminators}
+\clearpage
+\section{Responsible Research and Innovation}
+\subsection{Biocontainment}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\textwidth]{figures/RRI/rri.png}
+    \caption{\textbf{Graphical figure of proposed engineered genetic incompatibility mechanism.} (A) dCas9 is used alongside a GCN4 epitope tail fused to VP64 activatory domains to promote lethal overexpression of tightly regulated genes like MdWUS1. (B) Representative data on relative gene expression showing lethal overexpression of genes and death in wildtype but not our genetically modified iCIDER plant. dCas9: dead Cas9; sgRNA: single guide RNA; GCN4: General Control Nondepressible 4; MdWUS1: \textit{Malus domestica} \textit{WUSCHEL 1}.}
+    \label{fig:rri_genetic_incompatibility}
+\end{figure}
 
-    \subsection{Spacers}
-    Spacer sequences are placed between terminators and the promoter of subsequent genes that produce a strong secondary structure to prevent transcriptional readthrough. These sequences are based on the 10 helical secondary structure that forms in the 5' external transcribed spacer of yeast pre-rRNA (Table~\ref{tab:spacers}).
-    \input{tables/spacers}
+Biocontainment is a critical consideration for iCIDER, as it is essential to prevent the genetic spread of genetically engineered apples into the environment. There are two main concerns: out-crossing, where iCIDER genes spread into wild apple populations, and in-crossing, where wild apple pollen fertilizes iCIDER trees and could dilute our introduced traits.
 
-    \subsection{Regulator Elements}
-    Regulator elements are DNA sequences that control gene expression by serving as binding sites for transcriptional regulators. These include upstream activating sequences (UAS) for GAL4 binding, SOS boxes for LexA binding, and tetracycline operators (TetO) for TetR binding (Table~\ref{tab:regulator}).
-    \input{tables/regulator_elements}
+Designing effective biocontainment strategies first requires an understanding of apple reproduction and commercial practices. Fruit production requires male pollen to fertilise the female stigma. Most apples promote heterozygosity in the population by exhibiting self-incompatibility, meaning they cannot fertilise themselves \citep{Cerovi2025}. However, this poses a challenge for us in both the dilution of our introduced genes and the potential risk of out-crossing which could spread modified genes into the environment.
 
-    \clearpage
-    \section{Responsible Research and Innovation}
-    \subsection{Biocontainment}
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.95\textwidth]{figures/RRI/rri.png}
-        \caption{\textbf{Graphical figure of proposed engineered genetic incompatibility mechanism.} (A) dCas9 is used alongside a GCN4 epitope tail fused to VP64 activatory domains to promote lethal overexpression of tightly regulated genes like MdWUS1. (B) Representative data on relative gene expression showing lethal overexpression of genes and death in wildtype but not our genetically modified iCIDER plant. dCas9: dead Cas9; sgRNA: single guide RNA; GCN4: General Control Nondepressible 4; MdWUS1: \textit{Malus domestica} \textit{WUSCHEL 1}.}
-        \label{fig:rri_genetic_incompatibility}
-    \end{figure}
+While most apple cultivars are self-incompatible, a potential work around is to use a subset of \textit{M. domestica} cultivars that are self-compatible, such as the Winston cultivar \citep{SpecialtyProduce_WinstonApples,ShootGardening_Winston_Apple}. Alternatively, inhibiting gametophytic incompatibility, by deleting pollen tube degrading S-locus genes could be used to promote self-compatibility \citep{Okada2024}. Using self-compatible cultivars allows fruit production without relying on pollen from neighbouring trees, enabling us to employ other strategies to isolate our plants and reduce the risk of out-crossing and in-crossing.
 
-    Biocontainment is a critical consideration for iCIDER, as it is essential to prevent the genetic spread of genetically engineered apples into the environment (Figure~\ref{fig:rri_genetic_incompatibility}). There are two main concerns: out-crossing, where iCIDER genes spread into wild apple populations, and in-crossing, where wild apple pollen fertilizes iCIDER trees and could dilute our introduced traits.
+To prevent out-crossing, physical barriers could be used for biocontainment; previous studies have shown that spatial separation between apple orchards with perimeter nets could reduce cross-pollination to 1\% at 8 m and 0.1\% at 100 m \citep{Schlathlter2021}.
 
-    Designing effective biocontainment strategies first requires an understanding apple reproduction and commercial practices. Fruit production requires male pollen to fertilise the female stigma. Most apples promote heterozygosity in the population by exhibiting self-incompatibility, meaning they cannot fertilise themselves \citep{Cerovi2025}. However, this poses a challenge for us in both the dilution of our introduced genes and the potential risk of out-crossing which could spread modified genes into the environment.
+Alternative genetic strategies, like engineered genetic incompatibility for hybrid lethality, could also be used to help prevent out-crossing from our plants. Specifically, the use of programmable transcriptional activators (PTAs) for the overexpression of tightly regulated genes to drive lethality only in wild-type plants \citep{Zinselmeier2025}. Previously shown in a range of organisms \citep{Maselko2017,Maselko2020}, PTAs are made of dead Cas9 (dCas9) fused to epitope tails with binding sites for activator domains like VP64 \citep{Zinselmeier2025}, as shown in  Figure \ref{fig:rri_genetic_incompatibility}.  By targeting PTAs to wild-type promoters, overexpression of tightly regulated endogenous genes can be driven leading to lethality in wild-type plants. On the other hand, silent mutations in the promoter sequence of our GM plants can prevent recognition by PTAs and subsequent overexpression.  In apples, previous studies showed that overexpressing MdWUS-1 increased oxidative stress and led to cell death, perhaps presenting a potential candidate gene for PTA targeting \citep{Liu2025}. While promising, in some cases, candidate genes in other plants did not lead to hybrid lethality, highlighting that stringent selection of genes is crucial for successful implementation.
 
-    While most apple cultivars are self-incompatible, a potential work around is to use a subset of \textit{M. domestica} cultivars that are self-compatible, such as the Winston cultivar \citep{SpecialtyProduce_WinstonApples,ShootGardening_Winston_Apple}. Alternatively, inhibiting gametophytic incompatibility, by deleting pollen tube degrading S-locus genes could be used to promote self-compatibility \citep{Okada2024}. Using self-compatible cultivars allows fruit production without relying on pollen from neighbouring trees allows us to employ other strategies to isolate our plants and reduce the risk of out-crossing and in-crossing.
+To prevent our modifications from being diluted over multiple generations, clonal propagation through grafting or other vegetative techniques \citep{Dobrnszki2010} could be employed. This would help ensure that progeny are genetically identical and can reliably produce fruit every year, whilst maintaining their genomic modifications.
 
-    To prevent out-crossing physical barriers could be used for biocontainment; previous studies have shown that spatial separation between apple orchards with perimeter nets could reduce cross-pollination to 1\% at 8 m and 0.1\% at 100m \citep{Schlathlter2021}.
+Taken together, cultivating self-compatible cultivars within netted perimeter fences, engineering genetic incompatibility and clonal propagation provide a set of robust strategies that ensure reliable fruit production while preventing unintended gene flow into or from surrounding apple populations.
 
-    Alternative genetic strategies, like engineered genetic incompatibility, could also be used to help prevent out-crossing from our plants. Specifically, the use of programmable transcriptional activators (PTAs) for the overexpression of tightly regulated genes to drive lethality in wildtype plants \citep{Zinselmeier2025} only. Previously shown in a range of organisms \citep{Maselko2017,Maselko2020}, PTAs are made of dead Cas9 fused to epitope tails with binding sites for activator domains like SunTag or MoonTag bound to VP64 \citep{Zinselmeier2025}. While these drive overexpression of genes and hence lethality in wildtype plants, the introduction of benign mutations in the promoter prevent PTAs from overexpression in our GM plants to prevent mortality. In apples, previous studies showed that overexpressing MdWUS-1 increased oxidative stress and led to cell death, perhaps presenting a potential candidate gene for PTA targeting \citep{Liu2025}. While promising, in some cases candidate genes in other plants did not lead to hybrid lethality hence showing that stringent selection of genes is crucial for successful implementation.
+\subsection{Compliance and Regulation}
+Here, our project confronts a significant regulatory limitation. If these apples were submitted as a genetically modified (GM) food intended for direct human consumption in the UK, approval would be highly unlikely. This is because GM foods are subject to additional regulatory barriers under the UK Food Standards Agency \citep{FSA_GM_foods_2026}, and the proposed product fails to meet several key criteria, as listed below.
 
-    To prevent our modifications from being diluted over multiple generations, clonal propagation through grafting or other vegetative techniques \citep{Dobrnszki2010} could be employed. This would help ensure that progeny are genetically identical and can reliably produce fruit every year.
+Nutritional disadvantage: The diversion of endogenous sugars into ethanol reduces the nutritional value of the fruit, while ethanol itself provides no nutritional benefit.
 
-    Taken together, cultivating self-compatible cultivars within netted perimeter fences, engineering genetic incompatibility and clonal propagation provide a set of robust strategies that ensures reliable fruit production while preventing unintended gene flow into or from surrounding apple populations.
+Toxicological concerns: Alcohol is explicitly classified by the World Health Organization as a toxic, psychoactive, dependence-producing carcinogen \citep{WHO_Europe_NoSafeLevel_2023}, placing alcohol-apples at a substantial disadvantage during safety assessment.
 
-    \subsection{Compliance and Regulation}
-    Here, our project confronts a significant regulatory limitation. If these apples were submitted as a genetically modified (GM) food intended for direct human consumption in the UK, approval would be highly unlikely. This is because GM foods are subject to additional regulatory barriers under the UK Food Standards Agency \citep{FSA_GM_foods_2026}, and the proposed product fails to meet several key criteria:
+Consumer expectation mismatch: Another requirement for GM food approval is that products must not mislead consumers. Apples are widely consumed across all demographics, including children, and are not expected to contain psychoactive compounds. This fundamental mismatch between product identity and consumer expectation would make regulatory approval extremely challenging.
 
-    Nutritional disadvantage: The diversion of endogenous sugars into ethanol reduces the nutritional value of the fruit, while ethanol itself provides no nutritional benefit.
+However, iCIDER is not an innovation limited to the production of alcoholic apples. In principle, iCIDER could be used to generate apples with enhanced nutritional value, or to repurpose apples as plant-based bioreactors, where the target product is extracted post-harvest rather than consumed directly. From the perspective of apples functioning as bioreactors, deployment would most likely fall under Directive 2001/18/EC (``Deliberate Release''), which governs the intentional introduction of GMOs into the environment where no specific containment measures are used to fully prevent their spread \citep{EU_Directive_2001_18_EC}. While a range of biocontainment strategies could be implemented to minimise gene flow, it is currently unclear whether such measures would be sufficient to qualify the system under Directive 2009/41/EC (``Contained Use''), which requires defined physical, chemical, or biological barriers to limit environmental exposure \citep{EU_Dir2009_41_EC}.
 
-    Toxicological concerns: Alcohol is explicitly classified by the World Health Organization as a toxic, psychoactive, dependence-producing carcinogen \citep{WHO_Europe_NoSafeLevel_2023}, placing alcohol-apples at a substantial disadvantage during safety assessment.
+Consumer safety is our highest priority. If approved, iCIDER-derived alcoholic apples would feature clear labelling indicating both their GM status and alcohol content, ensuring informed choice. Placement in retail outlets would align with existing alcoholic beverages to reduce accidental consumption, particularly by minors \citep{FSA_GM_foods_2026}. Communicating these risks responsibly through outreach and education initiatives will be critical for public trust and adoption.
 
-    Consumer expectation mismatch. Another requirement for GM food approval is that products must not mislead consumers. Apples are widely consumed across all demographics, including children, and are not expected to contain psychoactive compounds. This fundamental mismatch between product identity and consumer expectation would make regulatory approval extremely challenging.
+\subsection{Stakeholders}
+Beyond direct consumers, our project considers farmers and growers. Although apple farmers are experienced in cultivation cycles, they may lack familiarity with synthetic biology techniques. The iCIDER platform is therefore designed for ease of use, requiring minimal on-field monitoring or technical intervention. Its modular architecture also ensures that trained synthetic biologists can understand and troubleshoot the system, supporting transparency and training.
 
-    However, iCIDER is not an innovation limited to the production of alcoholic apples. In principle, iCIDER could be used to generate apples with enhanced nutritional value or to repurpose apples as plant-based bioreactors, where the target product is extracted post-harvest rather than consumed directly. From the perspective of apples functioning as bioreactors, deployment would most likely fall under Directive 2001/18/EC (``Deliberate Release''), which governs the intentional introduction of GMOs into the environment where no specific containment measures are used to fully prevent their spread \citep{EU_Directive_2001_18_EC}. While a range of biocontainment strategies could be implemented to minimise gene flow, it is currently unclear whether such measures would be sufficient to qualify the system under Directive 2009/41/EC (``Contained Use''), which requires defined physical, chemical, or biological barriers to limit environmental exposure \citep{EU_Dir2009_41_EC}.
+\newpage
+\bibliographystyle{plainnat}
+\bibliography{references}
 
-    Consumer safety is our highest priority. If approved, iCIDER-derived alcoholic apples would feature clear labelling indicating both their GM status and alcohol content, ensuring informed choice. Placement in retail outlets would align with existing alcoholic beverages to reduce accidental consumption, particularly by minors \citep{FSA_GM_foods_2026}. Communicating these risks responsibly through outreach and education initiatives will be critical for public trust and adoption.
+\clearpage
+\appendix
+\section*{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\section{Modelling}
+In the interest of modelling simplicity, some assumptions were made. Firstly, this model assumes proteins are not passively degraded -- only proteins that contain PEST tags are actively degraded. This is because the fruit cells in ripened fruit divide very slowly (\citep{Penchovsky2023}), resulting in negligible protein dilution. A global transcription and translation rate is also assumed. Furthermore, in this simulation, the accumulation of ethanol does not lead to reduced cell viability.
 
-    \subsection{Stakeholders}
-    Beyond direct consumers, our project considers farmers and growers. Although apple farmers are experienced in cultivation cycles, they may lack familiarity with synthetic biology techniques. The iCIDER platform is therefore designed for ease of use, requiring minimal on-field monitoring or technical intervention. Its modular architecture also ensures that trained synthetic biologists can understand and troubleshoot the system, supporting transparency and training.
+To model our system, we first sought to show that our system is induced only when the apple is picked from the tree -- when ethylene is high and gibberellin is low.
 
-    \newpage
-    \bibliographystyle{plainnat}
-    \bibliography{references}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/modelling/prod_in_diff_condn.png}
+    \caption{\textbf{Production of VP16 and GAL4 in different conditions}. ET: ethylene. GA: gibberellin.}
+    \label{fig:prod_in_diff_condn}
+\end{figure}
+While the complete absence of ethylene or gibberellin in fruit cells is biologically unlikely, for simplicity of modelling, we assumed binary input states, representing the presence or absence of each hormone. In the presence of both hormones, only VP16 is produced (Figure~\ref{fig:prod_in_diff_condn}A), and in the absence of both hormones, only GAL4 is produced (Figure~\ref{fig:prod_in_diff_condn}B). If only gibberellin is present, neither VP16 nor GAL4 is produced (Figure~\ref{fig:prod_in_diff_condn}C), while in the presence of only ethylene, both VP16 and GAL4 are produced (Figure~\ref{fig:prod_in_diff_condn}D).
 
-    \clearpage
-    \appendix
-    \section{Modelling}
-    In the interest of modelling simplicity, some assumptions were made. This model assumes proteins are not passively degraded -- only proteins that contain PEST tags are actively degraded. This is because the fruit cells in ripened fruit divide very slowly (ref here), resulting in negligible protein dilution. A global transcription and translation rate is also assumed. Furthermore, in this simulation, ethanol accumulation does not lead to reduced cell viability.
+This shows that the system is only able to produce VP16 and GAL4 when the apple is ripening. As both VP16 and GAL4 are required to induce downstream processes, alcohol production is only possible when the fruit begins to ripen.
 
-    To model our system, we first sought to show that our system is induced only when the apple is picked from the tree -- when ethylene is high and when gibberellin is low.
+Next, we simulated the production of ADH and PDC over 20,000 minutes, or approximately two weeks. The extended timescale was chosen to capture the long-term gene expression dynamics.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.99\textwidth]{figures/modelling/prod_in_diff_condn.png}
-        \caption{\textbf{Production of VP16 and GAL4 in different conditions}. ET: ethylene. GA: gibberellin.}
-        \label{fig:prod_in_diff_condn}
-    \end{figure}
-    While complete depletion of ethylene or gibberellin in fruit cells is biologically unlikely, for simplicity of modelling, we assumed binary input states, representing the presence or absence of each hormone. In the presence of both hormones, only VP16 is produced (Figure~\ref{fig:prod_in_diff_condn}A), and in the absence of both hormones, only GAL4 is produced (Figure~\ref{fig:prod_in_diff_condn}B). If only gibberellin is present, neither  VP16 nor GAL4 is produced (Figure~\ref{fig:prod_in_diff_condn}C), while in the presence of only ethylene, both VP16 and GAL4 are produced (Figure~\ref{fig:prod_in_diff_condn}D).
+To model the production of these enzymes, we accounted for the fact that their expression is regulated by both an activator, VP16--GAL4, and a repressor, LexA. However, a well-established kinetic expression describing transcription under simultaneous activation and repression was not available. As a result, we employed an approximate formulation that combines the effects of activation and repression, as described below, where \(k_{\mathrm{trans}}\) is the global transcription rate, \(K_{m_{R}}\) is the repression coefficient, \(K_{m_{A}}\) is the activation coefficient, and \(R\) and \(A\) are the repressor and activator concentrations, respectively.
 
-    This shows that the system is only able to produce VP16 and GAL4 when the apple is ripening. As both VP16 and GAL4 are required to induce downstream processes, alcohol production is only possible when the fruit begins to ripen.
+\[
+    \frac{d[\mathrm{mRNA}]}{dt}
+    = \frac{k_{\mathrm{trans}}\,\left(K_{m_{R}}\right)^{n}}{\left(K_{m_{R}}\right)^{n} + R^{n}}
+    \cdot
+    \frac{k_{\mathrm{trans}}\,A^{n}}{\left(K_{m_{A}}\right)^{n} + A^{n}}.
+\]
 
-    Next, we simulated the production of ADH and PDC over 20,000 minutes, or approximately two weeks. The extended timescale was chosen to capture the long-term gene expression dynamics.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/modelling/adh_pdc_over_time.png}
+    \caption{\textbf{Production of ADH and PDC over time.}
+        \textbf{(A)} ADH and PDC without PEST tags.
+        \textbf{(B)} ADH and PDC with PEST tags.
+        \textbf{(C)} ADH without a PEST tag and PDC with a PEST tag.}
+    \label{fig:adh_pdc_over_time}
+\end{figure}
 
-    To model the production of these enzymes, we accounted for the fact that their expression is regulated by both an activator, VP16--GAL4, and a repressor, LexA. However, a well-established kinetic expression describing transcription under simultaneous activation and repression was not available. As a result, we employed an approximate formulation that combines the effects of activation and repression, as described below, where \(k_{\mathrm{trans}}\) is the global transcription rate, \(K_{m_{R}}\) is the repression coefficient, \(K_{m_{A}}\) is the activation coefficient, and \(R\) and \(A\) are the repressor and activator concentrations, respectively.
+As seen in Figure~\ref{fig:adh_pdc_over_time}C, ADH and PDC initially increase sharply in concentration. However, ADH concentration continues to increase while PDC concentration falls before plateauing.
 
-    \[
-        \frac{d[\mathrm{mRNA}]}{dt}
-        = \frac{k_{\mathrm{trans}}\,\left(K_{m_{R}}\right)^{n}}{\left(K_{m_{R}}\right)^{n} + R^{n}}
-        \cdot
-        \frac{k_{\mathrm{trans}}\,A^{n}}{\left(K_{m_{A}}\right)^{n} + A^{n}}.
-    \]
+During the development of the model, it was found that if neither ADH nor PDC was actively degraded (Figure~\ref{fig:adh_pdc_over_time}A), alcohol production would occur very quickly due to the continuous conversion of pyruvate by PDC. However, if both ADH and PDC were actively degraded, via addition of a PEST tag (Figure~\ref{fig:adh_pdc_over_time}B), there would be accumulation of the intermediate acetaldehyde. As a result, in our final simulation, only PDC is actively degraded (Figure~\ref{fig:adh_pdc_over_time}C), making the pyruvate to acetaldehyde conversion the rate-determining step.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.99\textwidth]{figures/modelling/adh_pdc_over_time.png}
-        \caption{\textbf{Production of ADH and PDC over time.}
-            \textbf{(A)} ADH and PDC without PEST tags.
-            \textbf{(B)} ADH and PDC with PEST tags.
-            \textbf{(C)} ADH without a PEST tag and PDC with a PEST tag.}
-        \label{fig:adh_pdc_over_time}
-    \end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.99\textwidth]{figures/modelling/ethanol-production-new.png}
+    \caption{\textbf{Production of acetaldehyde and ethanol from pyruvate.} Ethanol: concentration of ethanol in the apple. Total ethanol: total concentration of ethanol, including evaporated ethanol.}
+    \label{fig:ethanol_production_from_pyruvate}
+\end{figure}
 
-    As seen in Figure~\ref{fig:adh_pdc_over_time}C, ADH and PDC initially increase sharply in concentration. However, ADH concentration continues to increase while PDC concentration falls then plateaus.
+As shown in Figure~\ref{fig:ethanol_production_from_pyruvate}, the concentration of pyruvate is estimated to be 1.39 M, which is the total concentration of glucose and fructose in apples \citep{BALTA2022}. This is assuming that all the glucose and fructose in the apple is available to be converted to pyruvate.
 
-    During the development of the model, it was found that if neither ADH nor PDC were actively degraded (Figure \ref{fig:adh_pdc_over_time}A), alcohol production would occur very quickly due to the continuous conversion of pyruvate by PDC. However, if both ADH and PDC were actively degraded (Figure \ref{fig:adh_pdc_over_time}B), there would be accumulation of the intermediate acetaldehyde. As a result, in our final simulation, only PDC is actively degraded (Figure \ref{fig:adh_pdc_over_time}C), making the pyruvate to acetaldehyde conversion the rate-determining step.
+Ethanol concentration reaches a steady state at around 255 mM, which corresponds to around $1.5\%$ alcohol content in the apple. This occurs after 6,000 minutes, or around four days, and is when rate of ethanol production is equal to rate of evaporation from the apple.
 
-    \begin{figure}[h]
-        \centering
-        \includegraphics[width=0.99\textwidth]{figures/modelling/ethanol-production-new.png}
-        \caption{\textbf{Production of acetaldehyde and ethanol from pyruvate.} Ethanol: concentration of ethanol in the apple. Total ethanol: total concentration of ethanol, including evaporated ethanol.}
-        \label{fig:ethanol_production_from_pyruvate}
-    \end{figure}
-
-    As shown in Figure~\ref{fig:ethanol_production_from_pyruvate}, pyruvate concentration is estimated to be 1.39 M, which is the total concentration of glucose and fructose in apples \citep{BALTA2022}. This is assuming that the glucose and fructose in the apple is available to be converted to pyruvate.
-
-    Ethanol concentration reaches a steady state at around 255 mM, which corresponds to around $1.5\%$ alcohol content in the apple. This occurs after 6,000 minutes, or around four days, and is when rate of ethanol production is equal to rate of evaporation from the apple.
-
-Next, we tried simulated different levels of ethylene spikes (Figure \ref{fig:ethylene_ethanol_robust}A) and showed that the resultant ethanol production was similar (Figure \ref{fig:ethylene_ethanol_robust}B). This shows that our system is robust to variations in ethylene levels, allowing for a fixed final ethanol concentration in apples which may have different intensities of ethylene spikes.
+Next, we tried simulating different levels of ethylene spikes (Figure~\ref{fig:ethylene_ethanol_robust}A) and showed that the resulting ethanol production was similar (Figure~\ref{fig:ethylene_ethanol_robust}B). This shows that our system is robust to variations in ethylene levels, allowing for a fixed final ethanol concentration in apples exhibiting different intensities of ethylene spikes.
 
 \begin{figure}[h!]
     \centering
@@ -324,9 +318,9 @@ Next, we tried simulated different levels of ethylene spikes (Figure \ref{fig:et
     \label{fig:unregulated_pyruvate_conversion}
 \end{figure}
 
-Finally, to test the importance of negative regulation on the system, we removed the repressor module and simulated the conversion of pyruvate to ethanol over time, as shown in Figure \ref{fig:unregulated_pyruvate_conversion}. After a short delay, pyruvate was rapidly depleted to form acetaldehyde, which was subsequently converted to ethanol. This behaviour is likely driven by the self-amplification of VP16-GAL4 as well as the high catalytic efficiency of the enzymes ADH and PDC.
+Finally, to test the importance of negative regulation in the system, we removed the repressor module and simulated the conversion of pyruvate to ethanol over time, as shown in Figure~\ref{fig:unregulated_pyruvate_conversion}. After a short delay, pyruvate was rapidly depleted to form acetaldehyde, which was subsequently converted to ethanol. This behaviour is likely driven by the self-amplification of VP16-GAL4 as well as the high catalytic efficiency of the enzymes ADH1 and PDC.
 
-However, the rapid and complete depletion of pyruvate is biologically unrealistic, as it assumes that all available carbon derived from glucose and fructose is funnelled exclusively toward ethanol production. In reality, protein expression is energy intensive and relies on aerobic respiration. As pyruvate is central to aerobic respiration, it cannot be solely consumed to synthesise ethanol without severely compromising cellular viability. However, while the timescale and complete depletion of pyruvate derived from the model are biologically unrealistic, these results highlight the necessity of negative regulation in maintaining physiologically realistic metabolic dynamics.
+However, the rapid and complete depletion of pyruvate is biologically unrealistic, as it assumes that all available carbon derived from glucose and fructose is funnelled exclusively toward ethanol production. In reality, protein expression is energy intensive and is dependent on aerobic respiration. As pyruvate is central to aerobic respiration, it cannot be solely consumed to synthesise ethanol without severely compromising cellular viability. However, while the timescale and complete depletion of pyruvate derived from the model are biologically unrealistic, these results highlight the necessity of negative regulation in maintaining physiologically realistic metabolic dynamics.
 
 \section{Codon Optimization Script and CellDesigner Files}
 \label{sec:additional-files-code}
